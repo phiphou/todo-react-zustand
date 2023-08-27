@@ -1,14 +1,14 @@
 [![MIT license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](http://opensource.org/licenses/MIT)
 
-# React RxJs todo
+# React Zustand todo
 
-A minimalist todo app built using [React](https://reactjs.org/) and [RxJs](https://rxjs.dev/).
+A minimalist todo app built using [React](https://reactjs.org/) and [Zustand](https://github.com/pmndrs/zustand).
 
 ## Quick Start
 
 ```bash
-$ git clone https://github.com/phiphou/todo-react-rxjs.git
-$ cd todo-react-rxjs
+$ git clone https://github.com/phiphou/todo-react-zustand.git
+$ cd todo-react-zustand
 $ npm install
 $ npm run dev
 ```
