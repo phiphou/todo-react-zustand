@@ -8,9 +8,8 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-  background: #efefef;
+  background: #616161;
 }
-
 .container {
   max-width: 600px;
   margin: 0 auto;
@@ -151,14 +150,4 @@ h2 {
 
 .menu a {
   text-decoration: none;
-}
-
-.fade-enter {
-  opacity: 0;
-  z-index: 1;
-}
-
-.fade-enter.fade-enter-active {
-  opacity: 1;
-  transition: opacity 250ms ease-in;
 }
