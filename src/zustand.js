@@ -33,6 +33,17 @@ export const useTodoStore = create((set) => ({
   }
 }))
 
+export const useTodoActions = () => {
+  const store = useTodoStore()
+  return {
+    toggleTodo: store.toggleTodo,
+    deleteTodo: store.deleteTodo,
+    clearCompleted: store.clearCompleted,
+    clearAll: store.clearAll,
+    addTodo: store.addTodo
+  }
+}
+
 export const useTodos = () => {
   const [todos, setTodos] = useState([])
 

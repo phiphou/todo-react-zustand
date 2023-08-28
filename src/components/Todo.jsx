@@ -1,10 +1,8 @@
 import React from 'react'
-import { useTodoStore } from '../zustand'
+import { useTodoActions } from '../zustand'
 
 const Todo = ({ todo }) => {
-  const { toggleTodo, deleteTodo } = useTodoStore((state) => {
-    return { toggleTodo: state.toggleTodo, deleteTodo: state.deleteTodo }
-  })
+  const { toggleTodo, deleteTodo } = useTodoActions()
 
   return (
     <div className="todo">

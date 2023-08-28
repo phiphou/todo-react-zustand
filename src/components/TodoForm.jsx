@@ -1,16 +1,10 @@
 import React, { useState } from 'react'
-import { useTodoStore } from '../zustand'
+import { useTodoActions } from '../zustand'
 
 const TodoForm = ({}) => {
   const [todo, setTodo] = useState('')
 
-  const { clearCompleted, clearAll, addTodo } = useTodoStore((state) => {
-    return {
-      clearCompleted: state.clearCompleted,
-      clearAll: state.clearAll,
-      addTodo: state.addTodo
-    }
-  })
+  const { clearCompleted, clearAll, addTodo } = useTodoActions()
 
   const todoAdd = (e) => {
     e.preventDefault()
