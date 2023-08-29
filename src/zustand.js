@@ -3,8 +3,26 @@ import { create } from 'zustand'
 
 const existingTodos = localStorage.getItem('todos')
 
-export const useTodoStore = create((set) => ({
+export const FILTER_ALL = 'FILTER_ALL'
+export const FILTER_COMPLETED = 'FILTER_COMPLETED'
+export const FILTER_UNCOMPLETED = 'FILTER_UNCOMPLETED'
+
+export const useTodoStore = create((set, get) => ({
   todos: existingTodos ? JSON.parse(existingTodos) : [],
+  filter: FILTER_ALL,
+  filteredTodos: () => {
+    switch (get().filter) {
+      case FILTER_ALL:
+        return get().todos
+      case FILTER_COMPLETED:
+        return get().todos.filter((todo) => todo.completed)
+      case FILTER_UNCOMPLETED:
+        return get().todos.filter((todo) => !todo.completed)
+    }
+  },
+  updateFilter: (filterMode) => {
+    set({ filter: filterMode })
+  },
   clearCompleted: () =>
     set((state) => ({ todos: state.todos.filter((todo) => !todo.completed) })),
   clearAll: () => set({ todos: [] }),
@@ -40,7 +58,8 @@ export const useTodoActions = () => {
     deleteTodo: store.deleteTodo,
     clearCompleted: store.clearCompleted,
     clearAll: store.clearAll,
-    addTodo: store.addTodo
+    addTodo: store.addTodo,
+    updateFilter: store.updateFilter
   }
 }
 
@@ -56,5 +75,9 @@ export const useTodos = () => {
     localStorage.setItem('todos', JSON.stringify(initalTodos))
   }, [initalTodos])
 
-  return todos
+  const filteredTodos = useTodoStore((state) => {
+    return state.filteredTodos
+  })
+
+  return { todos: todos, filtered: filteredTodos() }
 }

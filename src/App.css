@@ -151,3 +151,8 @@ h2 {
 .menu a {
   text-decoration: none;
 }
+
+.filter {
+  /* margin-top: 5px; */
+  margin-bottom: 8px;
+}
